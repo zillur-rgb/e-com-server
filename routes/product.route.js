@@ -46,4 +46,7 @@ router.get("/product-list/:page", ProductController.productList);
 //search product
 router.get("/search/:keyword", ProductController.searchProduct);
 
+//similar product
+router.get("/related-product/:pid/:cid", ProductController.relatedProduct);
+
 export const ProductRouter = router;
