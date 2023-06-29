@@ -32,6 +32,6 @@ router.get("/get-product/:slug", ProductController.getSingleProduct);
 router.get("/product-photo/:pid", ProductController.productPhoto);
 
 //delete rproduct
-router.delete("/product/:pid", ProductController.deleteProduct);
+router.delete("/delete-product/:pid", ProductController.deleteProduct);
 
 export const ProductRouter = router;
