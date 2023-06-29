@@ -6,6 +6,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.route.js";
 import { CategoryRouter } from "./routes/category.route.js";
+import { ProductRouter } from "./routes/product.route.js";
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(morgan("dev"));
 //routes
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", CategoryRouter);
+app.use("/api/v1/product", ProductRouter);
 
 // test api
 app.get("/", (req, res) => {

@@ -21,7 +21,7 @@ router.put(
   CategoryController.updateCategory
 );
 
-//getALl category
+//getAll category
 router.get("/get-category", CategoryController.getAllCategory);
 
 //single category
