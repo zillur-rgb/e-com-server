@@ -1,6 +1,7 @@
 import productModel from "../models/product.model.js";
 import fs from "fs";
 import slugify from "slugify";
+import categoryModel from "../models/category.model.js";
 
 const createProduct = async (req, res) => {
   try {
