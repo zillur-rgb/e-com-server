@@ -1,9 +1,5 @@
 import express from "express";
-import {
-  forgotPasswordController,
-  loginController,
-  registerController,
-} from "../controllers/auth.controller.js";
+import { AuthController } from "../controllers/auth.controller.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
@@ -11,11 +7,11 @@ const router = express.Router();
 
 //routing
 //REGISTER || METHOD POST
-router.post("/register", registerController);
+router.post("/register", AuthController.register);
 //LOGIN || POST
-router.post("/login", loginController);
+router.post("/login", AuthController.login);
 //Forgot Password || POST
-router.post("/forgot-password", forgotPasswordController);
+router.post("/forgot-password", AuthController.forgotPassword);
 //protected route auth
 router.get("/user-auth", requireSignIn, (req, res) => {
   res.status(200).send({ ok: true });
@@ -29,5 +25,8 @@ router.get("/user-auth", requireSignIn, (req, res) => {
 router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
 });
+
+//update profile
+router.put("/profile", requireSignIn, AuthController.updateProfile);
 
 export default router;

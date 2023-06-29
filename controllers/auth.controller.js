@@ -2,7 +2,7 @@ import { comparePassword, hashPassword } from "../helpers/authHelper.js";
 import userModel from "../models/user.model.js";
 import JWT from "jsonwebtoken";
 
-export const registerController = async (req, res) => {
+const register = async (req, res) => {
   try {
     const { name, email, password, phone, address, answer } = req.body;
     //validations
@@ -61,7 +61,7 @@ export const registerController = async (req, res) => {
 };
 
 //POST LOGIN
-export const loginController = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     //validation
@@ -115,7 +115,7 @@ export const loginController = async (req, res) => {
 
 //forgotPasswordController
 
-export const forgotPasswordController = async (req, res) => {
+const forgotPassword = async (req, res) => {
   try {
     const { email, answer, newPassword } = req.body;
     if (!email) {
@@ -150,4 +150,46 @@ export const forgotPasswordController = async (req, res) => {
       error,
     });
   }
+};
+
+//update prfole
+const updateProfile = async (req, res) => {
+  try {
+    const { name, email, password, address, phone } = req.body;
+    const user = await userModel.findById(req.user._id);
+    //password
+    if (password && password.length < 6) {
+      return res.json({ error: "Passsword is required and 6 character long" });
+    }
+    const hashedPassword = password ? await hashPassword(password) : undefined;
+    const updatedUser = await userModel.findByIdAndUpdate(
+      req.user._id,
+      {
+        name: name || user.name,
+        password: hashedPassword || user.password,
+        phone: phone || user.phone,
+        address: address || user.address,
+      },
+      { new: true }
+    );
+    res.status(200).send({
+      success: true,
+      message: "Profile Updated SUccessfully",
+      updatedUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "Error WHile Update profile",
+      error,
+    });
+  }
+};
+
+export const AuthController = {
+  updateProfile,
+  forgotPassword,
+  login,
+  register,
 };
