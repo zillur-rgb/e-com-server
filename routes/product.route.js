@@ -49,4 +49,7 @@ router.get("/search/:keyword", ProductController.searchProduct);
 //similar product
 router.get("/related-product/:pid/:cid", ProductController.relatedProduct);
 
+//category wise product
+router.get("/product-category/:slug", ProductController.productByCategory);
+
 export const ProductRouter = router;
