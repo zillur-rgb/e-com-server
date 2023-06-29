@@ -43,4 +43,7 @@ router.get("/product-count", ProductController.productCount);
 //product per page
 router.get("/product-list/:page", ProductController.productList);
 
+//search product
+router.get("/search/:keyword", ProductController.searchProduct);
+
 export const ProductRouter = router;
