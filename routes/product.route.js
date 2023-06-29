@@ -34,4 +34,13 @@ router.get("/product-photo/:pid", ProductController.productPhoto);
 //delete rproduct
 router.delete("/delete-product/:pid", ProductController.deleteProduct);
 
+//filter product
+router.post("/product-filters", ProductController.productFilters);
+
+//product count
+router.get("/product-count", ProductController.productCount);
+
+//product per page
+router.get("/product-list/:page", ProductController.productList);
+
 export const ProductRouter = router;
