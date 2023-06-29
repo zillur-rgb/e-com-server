@@ -1,4 +1,4 @@
-import productModel from "../models/productModel.js";
+import productModel from "../models/product.model.js";
 import fs from "fs";
 import slugify from "slugify";
 
@@ -7,7 +7,7 @@ const createProduct = async (req, res) => {
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
-    //alidation
+    //Validation
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is Required" });
