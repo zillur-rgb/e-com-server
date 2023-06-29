@@ -52,4 +52,15 @@ router.get("/related-product/:pid/:cid", ProductController.relatedProduct);
 //category wise product
 router.get("/product-category/:slug", ProductController.productByCategory);
 
+//payments routes
+//token
+router.get("/braintree/token", ProductController.braintreeToken);
+
+//payments
+router.post(
+  "/braintree/payment",
+  requireSignIn,
+  ProductController.brainTreePayment
+);
+
 export const ProductRouter = router;
