@@ -32,4 +32,15 @@ router.put("/profile", requireSignIn, AuthController.updateProfile);
 //Order from user
 router.get("/orders", requireSignIn, AuthController.getCustomerOrders);
 
+//all orders
+router.get("/all-orders", requireSignIn, isAdmin, AuthController.getAllOrders);
+
+// order status update
+router.put(
+  "/order-status/:orderId",
+  requireSignIn,
+  isAdmin,
+  AuthController.orderStatus
+);
+
 export default router;
