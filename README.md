@@ -20,26 +20,26 @@ The challenge is to build an e-commerce platform using modern full-stack technol
 ### User Stories
 
 
-- Build Front-end and Backe-end using MERN technology.
+- Build Front-end and Back-end using MERN technology.
 
 
 **General**
 
 
 - [x] Separate page for displaying all products and all categories.
-- [x] User should be able to add products to cart if they are not logged in.
+- [x] Users should be able to add products to the cart if they are not logged in.
 - [x] User should be able to see all the products and also the details of the products.
 - [x] User should be able to see products categorically.
-- [x] User should be able to see a limited products and a pagination at the bottom.
+- [x] User should be able to see limited products and pagination at the bottom.
 - [x] User should be able to filter based on price and category. Categories can be selected more than one.
 
 
 **User**
 
 
-- [x] User should be able to sign up and login throught different pages.
-- [x] User should be able to reset their password if they forgets and there should be security question in order to reset.
-- [x] User can continue to the order page if they are logged in.
+- [x] User should be able to sign up and log in through different pages.
+- [x] User should be able to reset their password if they forget and there should be a security question in order to reset it.
+- [x] Users can continue to the order page if they are logged in.
 - [x] User can manage their profile and orders through the Dashboard page.
 
 
@@ -86,14 +86,14 @@ The challenge is to build an e-commerce platform using modern full-stack technol
 ### What I Explored
 
 
-- It was cool working with Braintree payment, it is a gret way to implement paypal and card in a same payment model.
+- It was cool working with Braintree payment, it is a great way to implement Paypal and card in the same payment model.
 - There are some states that needed to be maintained. I went with the Context API. The app is not that complex and I think no state management libraries are required for this project.
 
 
 ### Continued development
 
 
-I will implement the user management section for admin. And also, I can make a lot of things reusable. Beside, I am thinking of using React-hook-form for form management. Paypal is also not working properly because I did not add my developer account.
+I will implement the user management section for admin. And also, I can make a lot of things reusable. Besides, I am thinking of using React-hook-form for form management. Paypal is also not working properly because I did not add my developer account.
 
 
 ### Useful resources
